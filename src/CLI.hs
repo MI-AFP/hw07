@@ -1,4 +1,25 @@
-module CLI (testerCLI) where
+module CLI (loadAndShow, testerCLI) where
+
+import System.IO
+import System.Environment
+import qualified Data.ByteString.Lazy as BS
+import Data.Aeson (decode)
+import Data.Maybe
+
+import Tester.Model
+import Tester.Model.AesonInstances
+
+
+-- demonstration of using aeson to load JSON file with TestSet
+loadAndShow :: IO ()
+loadAndShow = do
+  args <- getArgs
+  handle <- openFile (head args) ReadMode
+  contentsJSON <- BS.hGetContents handle
+  let contents = decode contentsJSON :: Maybe TestSet
+  case contents of
+    Nothing -> print "Invalid JSON..."
+    _       -> print contents
 
 
 testerCLI :: IO ()

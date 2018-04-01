@@ -3,7 +3,6 @@ module Main where
 import CLI (testerCLI)
 
 
-
 main :: IO ()
 main = testerCLI
 -- TODO: make CLI for answering loaded Test

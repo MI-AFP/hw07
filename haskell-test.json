@@ -1,0 +1,55 @@
+{
+  "title": "Haskell theoretical test",
+  "intro": "This test serves as example...",
+  "questions": [
+    {
+      "text": "What is the result of: 5*2+10?",
+      "answer": {
+        "kind": "numeric",
+        "corrects": [20],
+        "score": 1
+      }
+    },
+    {
+      "text": "What is the name of the most basic module?",
+      "answer": {
+        "kind": "textual",
+        "corrects": ["Prelude"],
+        "score": 1
+      }
+    },
+    {
+      "text": "What is the name of mathematician related to Haskell language name?",
+      "answer": {
+        "kind": "textual",
+        "corrects": ["Haskell Curry", "Haskell Brooks Curry", "Haskell B. Curry"],
+        "score": 1
+      }
+    },
+    {
+      "text": "What function is able to put string on console and add newline?",
+      "answer": {
+        "kind": "multichoice",
+        "choices": [
+          {"text": "show", "score": -1},
+          {"text": "print", "score": 1},
+          {"text": "putStr", "score": -1},
+          {"text": "putStrLn", "score": 1}
+        ]
+      }
+    },
+    {
+      "text": "What typeclass is used for comparison?",
+      "answer": {
+        "kind": "singlechoice",
+        "choices": [
+          {"text": "Enum", "score": -1},
+          {"text": "Ord", "score": 1},
+          {"text": "Foldable", "score": -1},
+          {"text": "Monad", "score": -1},
+          {"text": "Show", "score": -1}
+        ]
+      }
+    }
+  ]
+}

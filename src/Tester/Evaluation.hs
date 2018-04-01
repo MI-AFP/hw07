@@ -30,8 +30,22 @@ instance Scored Question where
   score = score . quAnswer
 
 instance Scored Answer where
-  maxScore SingleChoice { ascChoices = chs } = undefined
-  maxScore MultiChoice  { amcChoices = chs } = undefined
-  maxScore TextualAnswer { ataScore = sc } = sc
-  maxScore NumericAnswer { atnScore = sc } = sc
-  score _ _ = undefined
+  maxScore SingleChoice{ ascChoices = chs } = maximum . map chScore $ chs
+  maxScore MultiChoice{ amcChoices = chs } = sum . filter (>0) . map chScore $ chs
+  maxScore TextualAnswer{ ataScore = sc } = sc
+  maxScore NumericAnswer{ anaScore = sc } = sc
+  score SingleChoice{ ascChoices = chs } (ChoicesUA [x]) =
+        case filter (\y -> chText y == x) chs of
+          [ch] -> chScore ch
+          _    -> 0
+  score MultiChoice{ amcChoices = chs } (ChoicesUA xs) =
+        case filter (\x -> chText x `elem` xs) chs of
+          []   -> 0
+          cchs -> sum . map chScore $ cchs
+  score TextualAnswer{ ataCorrect = corrects, ataScore = sc } (TextualUA txt)
+        | txt `elem` corrects = sc
+        | otherwise = 0
+  score NumericAnswer{ anaCorrect = corrects, anaScore = sc } (NumericUA val)
+        | val `elem` corrects = sc
+        | otherwise = 0
+  score _ _ = error "Cannot determine the score"

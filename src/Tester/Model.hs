@@ -16,12 +16,11 @@ data Question = Question { quText    :: !Text
 data Answer = SingleChoice  { ascChoices :: [Choice] }
             | MultiChoice   { amcChoices :: [Choice] }
             | TextualAnswer { ataCorrect :: [Text], ataScore :: Points }
-            | NumericAnswer { atnCorrect :: [Double], atnScore :: Points }
+            | NumericAnswer { anaCorrect :: [Double], anaScore :: Points }
             deriving (Read, Show)
 
 data Choice = Choice { chText    :: !Text
                      , chScore   :: Points
-                     , chCorrect :: Bool
                      } deriving (Read, Show)
 
 data UserAnswer = ChoicesUA [Text]
