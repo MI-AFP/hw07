@@ -4,7 +4,11 @@ Homework to practice IO basics, testing, and project documentation
 
 ## Task
 
->  TODO
+This time your will work on a "half-done" smaller project called *SELF-TESTER*.
+
+1. **CLI** = your task is implement command line interface so user can do a self-test in console interactively. First you need to explore the code a bit and then implement `Tester.CLI` (some requirements are there in comments). The test should be loaded from a JSON file (using [aeson](https://hackage.haskell.org/package/aeson) library, see `Tester.Model.AesonInstances`), the file is provided via argument. There are also some behavioral options... Then the interaface should ask questions and show results. **No tests are provided**. You can run the CLI with `stack exec selftester` (after `stack build`).
+2. **Tests** = second task is to write tests using [HSpec](https://hspec.github.io) and also its integration with [QuickCheck](https://hspec.github.io/quickcheck.html) for testing properties. Tests dependencies has to be specified by you. You can get some inspiration from previous homeworks. Everything should be tested... We will try if some faulty implementations will or won't pass your tests.
+3. **Documentation** = final task is to write Haddock documentation for `Tester` modules - keep it short and clear... but complete!
 
 ## Notes
 

@@ -21,12 +21,14 @@ description:         Please see the README on Github at <https://github.com/MI-A
 
 dependencies:
 - base >= 4.7 && < 5
+- aeson
+- text
 
 library:
   source-dirs: src
 
 executables:
-  hw06-exe:
+  selftester:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
