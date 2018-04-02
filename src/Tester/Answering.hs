@@ -26,3 +26,8 @@ choicesLines :: [Choice] -> String
 choicesLines = unlines . zipWith choiceLine [1..] . map (T.unpack . chText)
               where
                 choiceLine i c = show i ++ ":" ++ c
+
+questionSeparator :: String
+questionSeparator = replicate 50 '-'
+
+-- TODO: finish with functions you need...
