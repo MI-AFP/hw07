@@ -1,0 +1,18 @@
+image: haskell:8.6.3
+
+variables:
+  STACK_ROOT: "${CI_PROJECT_DIR}/.stack"
+
+cache:
+  paths:
+    - .stack
+    - .stack-work
+    - target
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - stack test --system-ghc
