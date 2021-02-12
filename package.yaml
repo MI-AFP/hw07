@@ -4,7 +4,7 @@ github:              "MI-AFP/hw06"
 license:             MIT
 author:              "Marek Suchánek"
 maintainer:          "marek.suchanek@fit.cvut.cz"
-copyright:           "2018 Marek Suchánek"
+copyright:           "2021 Marek Suchánek"
 
 extra-source-files:
 - README.md
